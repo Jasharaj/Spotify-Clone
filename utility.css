@@ -1,0 +1,81 @@
+.border{
+    border: 2px solid red;
+    margin: 6px;
+}
+
+.flex{
+    display: flex;
+}
+
+.justify-content{
+    justify-content: center;
+}
+
+.align-items{
+    align-items: center;
+}
+
+.bg-black{
+    background-color: black;
+    color: white;
+}
+
+.gap{
+    gap: 10px;
+}
+
+.bg-grey{
+    background-color: #222020;
+    border-radius: 7px;
+    margin: 6px;
+
+}
+
+.invert{
+    filter: invert(1);
+}
+
+.rounded{
+    border-radius: 10px;
+}
+
+.p-1{
+    padding: 20px;
+}
+
+
+/* Track */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #222;
+}
+
+/* Handle on drag */
+::-webkit-scrollbar-thumb:active {
+    background: #777;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Optional: If you also want to hide the scrollbar in Firefox */
+* {
+    scrollbar-width: none;
+}
+
