@@ -46,7 +46,7 @@ const playmusic = (folder, track) => {
     pauseVid();
     document.querySelector(".volume>img").src = "volume.svg";
     songLocation = "";
-    songLocation = `http://192.168.253.212:3000/Spotify%20Clone/Songs/${folder}/` + track;
+    songLocation = `http://192.168.236.211:3000/Songs/${folder}/` + track;
     songLocation.replaceAll(" ", "%20");
 
     currentSong = new Audio(songLocation);
@@ -77,7 +77,7 @@ const playmusic = (folder, track) => {
 }
 
 async function main(folder) {
-    let a = await fetch(`http://192.168.253.212:3000/Spotify%20Clone/Songs/${folder}/`);
+    let a = await fetch(`http://192.168.236.211:3000/Songs/${folder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -126,7 +126,7 @@ async function main(folder) {
     //Add an event listener to previous
     prev.addEventListener("click", () => {
         let temp = currentSong.src.split(`/${folder}/`)[1];
-        temp = `http://192.168.253.212:3000/Spotify%20Clone/Songs/${folder}/` + temp;
+        temp = `http://192.168.236.211:3000/Songs/${folder}/` + temp;
         let index = songs.indexOf(temp);
         index -= 1;
         if (index >= 0) {
@@ -140,7 +140,7 @@ async function main(folder) {
     next.addEventListener("click", () => {
         // let temp = currentSong.src.split(`${folder}`)[1];
         let temp = currentSong.src.split(`/${folder}/`)[1];
-        temp = `http://192.168.253.212:3000/Spotify%20Clone/Songs/${folder}/` + temp;
+        temp = `http://192.168.236.211:3000/Songs/${folder}/` + temp;
         let index = songs.indexOf(temp);
         index += 1;
         if (index <= songs.length - 1) {
@@ -152,7 +152,7 @@ async function main(folder) {
 }
 
 async function displayAlbum() {
-    let a = await fetch(`http://192.168.253.212:3000/Spotify%20Clone/Songs/`);
+    let a = await fetch(`http://192.168.236.211:3000/Songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -164,13 +164,13 @@ async function displayAlbum() {
         if (e.href.includes("/Songs")) {
             let folder = e.href.split("/").slice(-2)[0];
             //Get the meta data of the folder
-            a = await fetch(`http://192.168.253.212:3000/Spotify%20Clone/Songs/${folder}/info.json`);
+            a = await fetch(`http://192.168.236.211:3000/Songs/${folder}/info.json`);
             response = await a.json();
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
                 <div class="play">
                     <img class="invert" src="play.svg" alt="">
                 </div>
-                <img src="http://192.168.253.212:3000/Spotify%20Clone/Songs/${folder}/cover.jpeg" alt="">
+                <img src="http://192.168.236.211:3000/Songs/${folder}/cover.jpeg" alt="">
                     <h4>${response.title}</h4>
                     <p>${response.description}</p>
             </div>`
